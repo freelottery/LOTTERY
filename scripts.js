@@ -74,10 +74,10 @@ function generateTicketPDF(ticketNumber) {
 
 // Function to Download the eBook
 function downloadEbook() {
-    let ebookUrl = ""; // Ensure the correct file path
+    let ebookUrl = "White Pink Modern Future AI Data Science Training Course Promotion Instagram Post (3).pdf"; // Ensure the correct file path
     let link = document.createElement("a");
     link.href = ebookUrl;
-    link.download = "Winning_Strategies_Ebook.pdf";
+    link.download = "White Pink Modern Future AI Data Science Training Course Promotion Instagram Post (3).pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
