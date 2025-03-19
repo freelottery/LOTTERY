@@ -1,3 +1,8 @@
+document.addEventListener("DOMContentLoaded", function () {
+    generateLotteryNumber();
+    updateCountdown();
+});
+
 // Function to Generate a Lottery Number with a Loading Effect
 function generateLotteryNumber() {
     let lotteryNumberElement = document.getElementById("lottery-number");
@@ -69,7 +74,7 @@ function generateTicketPDF(ticketNumber) {
 
 // Function to Download the eBook
 function downloadEbook() {
-    let ebookUrl = "ebook.pdf"; // Ensure the correct file path
+    let ebookUrl = ""; // Ensure the correct file path
     let link = document.createElement("a");
     link.href = ebookUrl;
     link.download = "Winning_Strategies_Ebook.pdf";
@@ -92,4 +97,5 @@ function updateCountdown() {
         setTimeout(updateCountdown, 86400000); // Update every 24 hours
     }
 }
+
 
