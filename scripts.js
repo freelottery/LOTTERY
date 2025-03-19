@@ -81,5 +81,30 @@ function updateCountdown() {
         setTimeout(updateCountdown, 86400000); // Update every 24 hours
     }
 }
+let countdownDays = 10; // Set countdown to 10 days
+
+function updateCountdown() {
+    let countdownElement = document.getElementById("winner-countdown");
+    let buttonElement = document.getElementById("winner-button");
+
+    countdownElement.innerText = countdownDays + " Days Remaining";
+
+    if (countdownDays <= 0) {
+        countdownElement.innerText = "🎉 Winners Announced!";
+        buttonElement.disabled = false;
+        buttonElement.classList.add("enabled");
+        buttonElement.innerText = "✅ Check Winners";
+        buttonElement.onclick = function() {
+            window.location.href = "winners.html"; // Redirect to winners list
+        };
+    } else {
+        setTimeout(() => {
+            countdownDays--;
+            updateCountdown();
+        }, 86400000); // Update every 24 hours
+    }
+}
+
+updateCountdown();
 
 
