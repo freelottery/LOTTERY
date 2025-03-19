@@ -50,13 +50,17 @@ function generateLotteryNumber() {
 function downloadTicket() {
     let ticketNumber = document.getElementById("lottery-number").innerText;
     
-    let pdfContent = `Lottery Ticket\n\nTicket Number: ${ticketNumber}\nPrice: 10 Rs\n\nThank you for participating! Best of luck!`;
+    let { jsPDF } = window.jspdf;
+    let doc = new jsPDF();
     
-    let blob = new Blob([pdfContent], { type: "application/pdf" });
-    let link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = `Lottery_Ticket_${ticketNumber}.pdf`;
-    link.click();
+    doc.setFontSize(22);
+    doc.text("Premium Lottery Ticket", 20, 30);
+    doc.setFontSize(16);
+    doc.text(`Ticket Number: ${ticketNumber}`, 20, 50);
+    doc.text("Price: 10 Rs", 20, 60);
+    doc.text("Thank you for participating! Best of luck!", 20, 80);
+    
+    doc.save(`Lottery_Ticket_${ticketNumber}.pdf`);
 }
 
 function downloadEbook() {
