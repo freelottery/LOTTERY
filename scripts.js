@@ -18,23 +18,43 @@ function generateLotteryNumber() {
 
 // Function to Purchase a Lottery Ticket
 function downloadTicket() {
-    let ticketNumber = document.getElementById("lottery-number").innerText;
+    let ticketNumberElement = document.getElementById("lottery-number");
 
-    // Load jsPDF library
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
+    if (!ticketNumberElement) {
+        alert("Error: Ticket number not found!");
+        return;
+    }
 
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(22);
-    doc.text("Premium Lottery Ticket", 20, 30);
+    let ticketNumber = ticketNumberElement.innerText;
 
-    doc.setFontSize(16);
-    doc.text(`Ticket Number: ${ticketNumber}`, 20, 50);
-    doc.text("Price: 10 Rs", 20, 60);
-    doc.text("Thank you for participating! Best of luck!", 20, 80);
+    if (ticketNumber === "Generating...") {
+        alert("Please wait, generating your ticket number...");
+        return;
+    }
 
-    // Save PDF
-    doc.save(`Lottery_Ticket_${ticketNumber}.pdf`);
+    // Load jsPDF library correctly
+    if (window.jspdf) {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        // Set document style
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(22);
+        doc.setTextColor(0, 0, 255); // Blue title
+        doc.text("Premium Lottery Ticket", 20, 30);
+
+        doc.setFontSize(16);
+        doc.setTextColor(0, 0, 0); // Black text
+        doc.text(`Ticket Number: ${ticketNumber}`, 20, 50);
+        doc.text("Price: 10 Rs", 20, 60);
+        doc.text("Thank you for participating! Best of luck!", 20, 80);
+
+        // Save PDF with a unique name
+        doc.save(`Lottery_Ticket_${ticketNumber}.pdf`);
+        alert("Your ticket PDF has been downloaded!");
+    } else {
+        alert("Error: jsPDF library not found!");
+    }
 }
 // Function to Download the eBook
 function downloadEbook() {
