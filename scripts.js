@@ -8,11 +8,21 @@ function generateLotteryNumber() {
     let lotteryNumberElement = document.getElementById("lottery-number");
     if (!lotteryNumberElement) return;
 
+    let lastGenerated = localStorage.getItem("lotteryGeneratedAt");
+    let now = Date.now();
+
+    if (lastGenerated && now - lastGenerated < 10 * 24 * 60 * 60 * 1000) { // 10 days in milliseconds
+        lotteryNumberElement.innerHTML = `<span style="color: green; font-weight: bold;">${localStorage.getItem("lotteryNumber")}</span>`;
+        return;
+    }
+
     lotteryNumberElement.innerHTML = `<span style="color: red;">Generating...</span>`;
 
     setTimeout(() => {
         let number = Math.floor(100000 + Math.random() * 900000); // Generates a 6-digit number
         lotteryNumberElement.innerHTML = `<span style="color: green; font-weight: bold;">${number}</span>`;
+        localStorage.setItem("lotteryNumber", number);
+        localStorage.setItem("lotteryGeneratedAt", now);
     }, 2000); // 2 seconds loading effect
 }
 
@@ -92,4 +102,5 @@ function updateCountdown() {
 }
 
 updateCountdown();
+
 
