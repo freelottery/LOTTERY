@@ -17,61 +17,25 @@ function generateLotteryNumber() {
 }
 
 // Function to Purchase a Lottery Ticket
-function purchaseTicket(price) {
-    const ticketNumber = generateLotteryNumber();
-    setTimeout(() => {
-        alert(`✅ Ticket purchased successfully!\nYour ticket number is: ${ticketNumber}`);
-        generateTicketPDF(ticketNumber);
-    }, 2000); // Delay to match loading effect
-}
+function downloadTicket() {
+    let ticketNumber = document.getElementById("lottery-number").innerText;
 
-// Function to Generate & Download a **Professionally Styled** PDF
-function generateTicketPDF(ticketNumber) {
-    if (!window.jspdf) {
-        alert("Error: jsPDF is not loaded.");
-        return;
-    }
-
+    // Load jsPDF library
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
-    // Background Design
-    doc.setFillColor(240, 240, 240);
-    doc.rect(0, 0, 210, 297, "F");
-
-    // Header
     doc.setFont("helvetica", "bold");
     doc.setFontSize(22);
-    doc.setTextColor(0, 102, 204); // Blue Color
-    doc.text("🎟 Premium Lottery Ticket 🎟", 20, 30);
+    doc.text("Premium Lottery Ticket", 20, 30);
 
-    // Ticket Number Section
-    doc.setFont("courier", "bold");
-    doc.setFontSize(18);
-    doc.setTextColor(0, 0, 0); // Black Color
-    doc.text(`🔢 Ticket Number: ${ticketNumber}`, 20, 50);
-
-    // Price Section
     doc.setFontSize(16);
-    doc.setTextColor(255, 0, 0); // Red Color
-    doc.text("💰 Price: 10 Rs", 20, 70);
-
-    // Thank You Message
-    doc.setFontSize(14);
-    doc.setTextColor(34, 139, 34); // Green Color
-    doc.text("🎉 Thank you for participating! Best of luck! 🎉", 20, 90);
-
-    // Footer
-    doc.setFontSize(12);
-    doc.setTextColor(100, 100, 100); // Gray
-    doc.text("🔒 Secure & Verified | Lottery Organization 2025", 20, 110);
+    doc.text(`Ticket Number: ${ticketNumber}`, 20, 50);
+    doc.text("Price: 10 Rs", 20, 60);
+    doc.text("Thank you for participating! Best of luck!", 20, 80);
 
     // Save PDF
     doc.save(`Lottery_Ticket_${ticketNumber}.pdf`);
-    alert("📥 Your ticket PDF has been downloaded!");
-    downloadEbook();
 }
-
 // Function to Download the eBook
 function downloadEbook() {
     let ebookUrl = "White Pink Modern Future AI Data Science Training Course Promotion Instagram Post (3).pdf"; // Ensure the correct file path
