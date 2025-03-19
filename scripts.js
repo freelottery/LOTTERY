@@ -16,57 +16,50 @@ function generateLotteryNumber() {
     }, 2000); // 2 seconds loading effect
 }
 
-// Function to Purchase a Lottery Ticket
-function downloadTicket() {
-    let ticketNumberElement = document.getElementById("lottery-number");
+// Function to Generate and Download Lottery Ticket PDF
+function generateLotteryPDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ orientation: 'landscape' });
 
-    if (!ticketNumberElement) {
-        alert("Error: Ticket number not found!");
-        return;
-    }
+    // Background color rectangle
+    doc.setFillColor(255, 0, 0); // Red
+    doc.rect(0, 0, 297, 210, 'F');
 
-    let ticketNumber = ticketNumberElement.innerText;
+    // Title
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(24);
+    doc.setTextColor(255, 255, 0); // Yellow
+    doc.text('PREMIUM LOTTERY DRAW', 20, 30);
 
-    if (ticketNumber === "Generating...") {
-        alert("Please wait, generating your ticket number...");
-        return;
-    }
+    doc.setFontSize(20);
+    doc.text('GRAND PRIZE EVENT 2025', 20, 45);
 
-    // Ensure jsPDF is available
-    if (window.jspdf) {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
+    // Prize Details
+    doc.setFontSize(16);
+    doc.setTextColor(255, 255, 255);
+    doc.text('GUARANTEED PRIZES', 20, 65);
 
-        // Set document style
-        doc.setFont("helvetica", "bold");
-        doc.setFontSize(22);
-        doc.setTextColor(0, 0, 255); // Blue title
-        doc.text("Premium Lottery Ticket", 20, 30);
+    doc.setFontSize(24);
+    doc.setTextColor(255, 255, 0);
+    doc.text('1st Prize: ₹10,000', 20, 85);
+    doc.text('2nd Prize: ₹5,000', 20, 105);
+    doc.text('3rd Prize: ₹2,000', 20, 125);
+    doc.text('4th-10th Prize: ₹1,000', 20, 145);
+    doc.text('11th-100th Prize: ₹100', 20, 165);
 
-        doc.setFontSize(16);
-        doc.setTextColor(0, 0, 0); // Black text
-        doc.text(`Ticket Number: ${ticketNumber}`, 20, 50);
-        doc.text("Price: 10 Rs", 20, 60);
-        doc.text("Thank you for participating! Best of luck!", 20, 80);
+    // Ticket Number
+    let ticketNumber = document.getElementById("lottery-number").innerText;
+    doc.setFontSize(24);
+    doc.setTextColor(255, 255, 0);
+    doc.text(`Your Ticket Number: ${ticketNumber}`, 20, 185);
 
-        // Save PDF with a unique name
-        doc.save(`Lottery_Ticket_${ticketNumber}.pdf`);
-        alert("Your ticket PDF has been downloaded!");
-    } else {
-        alert("Error: jsPDF library not found!");
-    }
-}
+    // Draw Date
+    doc.setFontSize(18);
+    doc.setTextColor(255, 255, 255);
+    doc.text('Draw on: 18-02-2025 6:00 PM ONWARDS', 20, 200);
 
-// Function to Download the eBook
-function downloadEbook() {
-    let ebookUrl = "White Pink Modern Future AI Data Science Training Course Promotion Instagram Post (3).pdf"; // Ensure the correct file path
-    let link = document.createElement("a");
-    link.href = ebookUrl;
-    link.download = "White_Pink_Modern_Future_AI_Training_Course.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    alert("📖 Ebook has been downloaded!");
+    // Save the PDF
+    doc.save(`Lottery_Ticket_${ticketNumber}.pdf`);
 }
 
 // Countdown Timer
@@ -99,3 +92,4 @@ function updateCountdown() {
 }
 
 updateCountdown();
+
