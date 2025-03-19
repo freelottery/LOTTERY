@@ -32,7 +32,7 @@ function downloadTicket() {
         return;
     }
 
-    // Load jsPDF library correctly
+    // Ensure jsPDF is available
     if (window.jspdf) {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
@@ -56,12 +56,13 @@ function downloadTicket() {
         alert("Error: jsPDF library not found!");
     }
 }
+
 // Function to Download the eBook
 function downloadEbook() {
     let ebookUrl = "White Pink Modern Future AI Data Science Training Course Promotion Instagram Post (3).pdf"; // Ensure the correct file path
     let link = document.createElement("a");
     link.href = ebookUrl;
-    link.download = "White Pink Modern Future AI Data Science Training Course Promotion Instagram Post (3).pdf";
+    link.download = "White_Pink_Modern_Future_AI_Training_Course.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -70,33 +71,25 @@ function downloadEbook() {
 
 // Countdown Timer
 let countdownDays = 10;
-function updateCountdown() {
-    let countdownElement = document.getElementById("countdown");
-    if (countdownElement) {
-        countdownElement.innerHTML = `<span style="color: orange; font-weight: bold;">${countdownDays} days left</span>`;
-    }
-
-    if (countdownDays > 0) {
-        countdownDays--;
-        setTimeout(updateCountdown, 86400000); // Update every 24 hours
-    }
-}
-let countdownDays = 10; // Set countdown to 10 days
 
 function updateCountdown() {
     let countdownElement = document.getElementById("winner-countdown");
     let buttonElement = document.getElementById("winner-button");
 
-    countdownElement.innerText = countdownDays + " Days Remaining";
+    if (countdownElement) {
+        countdownElement.innerText = countdownDays + " Days Remaining";
+    }
 
     if (countdownDays <= 0) {
-        countdownElement.innerText = "🎉 Winners Announced!";
-        buttonElement.disabled = false;
-        buttonElement.classList.add("enabled");
-        buttonElement.innerText = "✅ Check Winners";
-        buttonElement.onclick = function() {
-            window.location.href = "winners.html"; // Redirect to winners list
-        };
+        if (countdownElement) countdownElement.innerText = "🎉 Winners Announced!";
+        if (buttonElement) {
+            buttonElement.disabled = false;
+            buttonElement.classList.add("enabled");
+            buttonElement.innerText = "✅ Check Winners";
+            buttonElement.onclick = function() {
+                window.location.href = "winners.html"; // Redirect to winners list
+            };
+        }
     } else {
         setTimeout(() => {
             countdownDays--;
@@ -106,5 +99,3 @@ function updateCountdown() {
 }
 
 updateCountdown();
-
-
