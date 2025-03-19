@@ -147,3 +147,60 @@ footer {
 .reward-summary-card ul li:last-child {
     border-bottom: none;
 }
+.ebook-pricing-card {
+    background: linear-gradient(135deg, #FFD700, #FF4500);
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 450px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    text-align: left;
+}
+
+.ebook-pricing-card img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 15px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.text-content h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.text-content p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.free-text {
+    color: #32CD32;
+    font-weight: bold;
+}
+.ebook-pricing-card img {
+    width: 100%;
+    max-width: 300px; /* Maximum width for PC */
+    height: auto;
+    border-radius: 8px;
+    margin-right: 15px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjust image size for mobile */
+@media (max-width: 768px) {
+    .ebook-pricing-card img {
+        max-width: 200px; /* Smaller size for mobile */
+    }
+}
