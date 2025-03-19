@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const allowedReferrer = "https://pages.razorpay.com/pl_Q8ZwtEqYjHrB5P/view";
+        
+        // Check if document.referrer matches Razorpay payment page
+        if (document.referrer !== allowedReferrer) {
+            alert("Access Denied! You must complete the payment first.");
+            window.location.href = "https://freelottery.github.io/LOTTERY/"; // Redirect to home
+        }
+    });
+</script>
 
     <script src="scripts.js" defer></script>
 </head>
