@@ -26,17 +26,17 @@
             <div class="lottery-card">
                 <h3>Standard Ticket</h3>
                 <p>Price: 10 Rs</p>
-                <button onclick="window.location.href='10rslottery.html'">Buy Now</button>
+                <button onclick="purchaseLottery('https://rzp.io/rzp/gOTq8hE')">Buy Now</button>
             </div>
             <div class="lottery-card">
                 <h3>Premium Ticket</h3>
                 <p>Price: 25 Rs</p>
-                <button onclick="window.location.href='25rslottery.html'">Buy Now</button>
+                <button onclick="purchaseLottery('https://rzp.io/rzp/gOTq8hE')">Buy Now</button>
             </div>
             <div class="lottery-card">
                 <h3>VIP Ticket</h3>
                 <p>Price: 50 Rs</p>
-                <button onclick="window.location.href='50rslottery.html'">Buy Now</button>
+                <button onclick="purchaseLottery('https://rzp.io/rzp/gOTq8hE')">Buy Now</button>
             </div>
         </div>
     </div>
@@ -45,7 +45,11 @@
         <p>&copy; 2008-2025 Premium Lottery. All Rights Reserved.</p>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script>
+        function purchaseLottery(paymentLink) {
+            sessionStorage.setItem("paymentStarted", "true");
+            window.location.href = paymentLink;
+        }
+    </script>
 </body>
 </html>
-
