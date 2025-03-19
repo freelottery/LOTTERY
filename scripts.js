@@ -64,7 +64,7 @@ function downloadTicket() {
 }
 
 function downloadEbook() {
-    let ebookUrl = "ebook.pdf"; // Replace with actual eBook URL
+    let ebookUrl = "White Pink Modern Future AI Data Science Training Course Promotion Instagram Post (3).pdf"; // Replace with actual eBook URL
     let link = document.createElement("a");
     link.href = ebookUrl;
     link.download = "Free_eBook.pdf";
