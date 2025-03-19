@@ -6,7 +6,6 @@
     <title>10 Rs Lottery Ticket</title>
     <link rel="stylesheet" href="10rslottery.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
     <script src="scripts.js" defer></script>
 </head>
 <body>
@@ -24,11 +23,19 @@
     <div class="container">
         <h2>Your 10 Rs Lottery Ticket</h2>
         <p>Thank you for your purchase! Your lottery number is:</p>
+        
         <div class="ticket">
-            <span id="lottery-number">Generating...</span>
+            <span id="lottery-number" class="loading">Generating...</span>
         </div>
+
+        <p id="success-message" class="hidden">🎉 Ticket Generated Successfully!</p>
+
         <button onclick="downloadTicket()">Download Ticket PDF</button>
         <button onclick="downloadEbook()">Download Free eBook</button>
+        
+        <div class="countdown-box">
+            <h3>Next Draw In: <span id="countdown">10 days</span></h3>
+        </div>
     </div>
 
     <footer>
@@ -36,3 +43,4 @@
     </footer>
 </body>
 </html>
+
