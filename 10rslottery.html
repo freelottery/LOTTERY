@@ -8,15 +8,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="scripts.js" defer></script>
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        if (localStorage.getItem("lottery_access") !== "granted") {
-            alert("Access Denied! Complete Payment First.");
-            window.location.href = "index.html"; // Redirect to home
-        } else {
-            // Remove access after first visit
-            localStorage.removeItem("lottery_access");
-        }
-    });
+    <script>
+  // Check if the user came from Razorpay payment page
+  if (document.referrer.includes("razorpay.com")) {
+      sessionStorage.setItem("paidUser", "true");
+  }
+
+  // Restrict access if the user didn’t pay
+  if (sessionStorage.getItem("paidUser") !== "true") {
+      alert("You must complete the payment first!");
+      window.location.href = "index.html"; // Redirect back
+  }
+</script>
+
 </script>
 
 </head>
