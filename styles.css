@@ -110,3 +110,40 @@ footer {
         margin: 10px 0;
     }
 }
+.reward-summary-card {
+    background: linear-gradient(135deg, #8E2DE2, #4A00E0);
+    color: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 320px;
+    margin: 20px auto;
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+
+.reward-summary-card h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    text-align: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    padding-bottom: 5px;
+}
+
+.reward-summary-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.reward-summary-card ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.reward-summary-card ul li:last-child {
+    border-bottom: none;
+}
