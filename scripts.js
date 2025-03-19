@@ -35,3 +35,34 @@ function updateCountdown() {
     }
 }
 updateCountdown();
+//10rs lottery script
+
+document.addEventListener("DOMContentLoaded", function () {
+    generateLotteryNumber();
+});
+
+function generateLotteryNumber() {
+    let number = Math.floor(100000 + Math.random() * 900000); // Generates a 6-digit number
+    document.getElementById("lottery-number").innerText = number;
+    return number;
+}
+
+function downloadTicket() {
+    let ticketNumber = document.getElementById("lottery-number").innerText;
+    
+    let pdfContent = `Lottery Ticket\n\nTicket Number: ${ticketNumber}\nPrice: 10 Rs\n\nThank you for participating! Best of luck!`;
+    
+    let blob = new Blob([pdfContent], { type: "application/pdf" });
+    let link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `Lottery_Ticket_${ticketNumber}.pdf`;
+    link.click();
+}
+
+function downloadEbook() {
+    let ebookUrl = "ebook.pdf"; // Replace with actual eBook URL
+    let link = document.createElement("a");
+    link.href = ebookUrl;
+    link.download = "Free_eBook.pdf";
+    link.click();
+}
