@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premium Lottery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- For pop-up alerts -->
 </head>
 <body>
     <header>
-        <h1>Premium Lottery</h1>
+        <h1>Premium Lottery 🎉</h1>
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -20,73 +22,64 @@
     </header>
 
     <div class="container">
-        <div class="ebook-pricing-card">
-    <img src="1.jpg" alt="Winning Strategies eBook">
-    <div class="text-content">
-        <h3>Winning Strategies eBook 📖</h3>
-        <p><strong>Price:</strong> <span class="price">₹10</span></p>
-        <p>Purchase this exclusive eBook and get a <strong>Premium Lottery Ticket</strong> for <span class="free-text">FREE! 🎉</span></p>
-        <p>Learn winning strategies and increase your chances of success.</p>
-    </div>
-</div>
-
-        <h2>Buy a ebook </h2>
-        <p>Over 100,000+ tickets sold! Draw in <span id="countdown">10</span> days.</p>
-        <div class="lottery-cards">
-            <div class="lottery-card">
-                <h3>BUY NOW FOR WIN 10,000</h3>
-                <p>Price: 10 Rs</p>
-                <button onclick="purchaseLottery('https://rzp.io/rzp/gOTq8hE')">Buy Now</button>
+        <section class="ebook-section">
+            <div class="ebook-pricing-card">
+                <img src="1.jpg" alt="Winning Strategies eBook">
+                <div class="text-content">
+                    <h3>Winning Strategies eBook 📖</h3>
+                    <p><strong>Price:</strong> <span class="price">₹29</span></p>
+                    <p>Purchase this exclusive eBook and get a <strong>Premium Lottery Ticket</strong> for <span class="free-text">FREE! 🎉</span></p>
+                    <p>Learn winning strategies and increase your chances of success.</p>
+                </div>
             </div>
-            </div>
-<div class="reward-summary-card">
-    <h3>Reward Breakdown</h3>
-    <ul>
-        <li><span>Grand Prize:</span> <strong>₹10,000</strong></li>
-        <li><span>2nd Prize:</span> <strong>₹5,000</strong></li>
-        <li><span>3rd Prize:</span> <strong>₹2,500</strong></li>
-        <li><span>Consolation:</span> <strong>₹500 x 10 Winners</strong></li>
-        <li><span>Total Winners:</span> <strong>13</strong></li>
-    </ul>
-</div>
-        <div class="winner-section">
-    <h2>🎉 Previous Lottery Winners 🏆</h2>
-    
-    <p class="lang-en">Here are some of our lucky winners from past draws!</p>
-    <p class="lang-hi">यहाँ हमारे पिछले विजेताओं की सूची है!</p>
-    <p class="lang-gu">આ છે અમારા પછેલા વિજેતાઓની યાદી!</p>
-    
-    <div class="winner-list">
-        <ul>
-            <li>🟢 ** SAYED AAYESHA** - ₹50,000 (India)</li>
-            <li>🟢 **KURESHI ARMAN** - ₹25,000 (India)</li>
-            <li>🟢 **PRAJAPATI ARYAN** - ₹10,000 (India)</li>
-            <li>🟢 **THAKOR DHAWAL** - ₹5,000 (India)</li>
-            <li>🟢 **ALBERT HIEST** - ₹2,000 (usa)</li>
-        </ul>
-    </div>
-    
-    <h3>🕒 Upcoming Winners Announcement</h3>
-    <p class="lang-en">The winners of this lottery will be announced in:</p>
-    <p class="lang-hi">इस लॉटरी के विजेता की घोषणा की जाएगी:</p>
-    <p class="lang-gu">આ લોટરીના વિજેતા જાહેર થશે:</p>
-    
-    <div id="winner-countdown">10 Days Remaining</div>
-    
-    <button id="winner-button" disabled>🔒 Check Winners</button>
-</div>
+        </section>
 
-</div>
+        <section class="lottery-section">
+            <h2>🎉 Buy a Lottery Ticket</h2>
+            <p>Over 100,000+ tickets sold! Draw in <span id="countdown">10</span> days.</p>
+            <div class="lottery-cards">
+                <div class="lottery-card" data-aos="flip-left">
+                    <h3>BUY Now</h3>
+                    <p>Price: ₹29</p>
+                    <button onclick="purchaseLottery('https://rzp.io/rzp/gOTq8hE')">Buy Now</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="reward-summary">
+            <div class="reward-summary-card">
+                <h3>🎁 Reward Breakdown</h3>
+                <ul>
+                    <li><span>1st Prize:</span> <strong>₹1 Crore</strong></li>
+                    <li><span>2nd Prize:</span> <strong>₹25 Lakhs</strong></li>
+                    <li><span>3rd Prize:</span> <strong>₹10 Lakhs</strong></li>
+                    <li><span>4th to 1000th Prize:</span> <strong>₹100</strong></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="winner-section">
+            <h2>🎉 Previous Lottery Winners 🏆</h2>
+            <div class="winner-list">
+                <ul>
+                    <li>🟢 ** SAYED AAYESHA** - ₹50,000 (India)</li>
+                    <li>🟢 **KURESHI ARMAN** - ₹25,000 (India)</li>
+                    <li>🟢 **PRAJAPATI ARYAN** - ₹10,000 (India)</li>
+                    <li>🟢 **THAKOR DHAWAL** - ₹5,000 (India)</li>
+                    <li>🟢 **ALBERT HIEST** - ₹2,000 (USA)</li>
+                </ul>
+            </div>
+            <div id="winner-countdown">10 Days Remaining</div>
+            <button id="winner-button" disabled>🔒 Check Winners</button>
+        </section>
+    </div>
 
     <footer>
         <p>&copy; 2008-2025 Premium Lottery. All Rights Reserved.</p>
     </footer>
 
-    <script>
-        function purchaseLottery(paymentLink) {
-            sessionStorage.setItem("paymentStarted", "true");
-            window.location.href = paymentLink;
-        }
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script> <!-- Animation library -->
+    <script src="script.js"></script>
 </body>
 </html>
+
