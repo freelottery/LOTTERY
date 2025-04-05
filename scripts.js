@@ -1,3 +1,5 @@
+// JavaScript code for the Premium Lottery Website
+
 document.addEventListener("DOMContentLoaded", function () {
     generateLotteryNumber();
     updateCountdown();
@@ -102,5 +104,6 @@ function updateCountdown() {
 }
 
 updateCountdown();
+
 
 
